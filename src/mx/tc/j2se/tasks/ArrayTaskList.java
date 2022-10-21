@@ -50,6 +50,9 @@ public class ArrayTaskList<task> {
             System.out.print(data[i] + " ");
         }
     }
+        void ArrayTaskListincoming(int from,int to){
+           display();
+        }
 }
 
 
