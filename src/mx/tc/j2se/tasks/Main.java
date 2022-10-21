@@ -18,6 +18,8 @@ public  class Main {
         //tsk.get(5);
         tsk.display();
         tsk.remove(1);
+        LinkedTaskList lt = new LinkedTaskList();
+         lt.insert(t);
     }
 }
 
