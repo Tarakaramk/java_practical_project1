@@ -35,7 +35,6 @@ public class LinkedTaskList<task> {
             nodeToBeInserted.setNextNode(node.getNextNode());
             node.setNextNode(nodeToBeInserted);
         }
-
     }
 
 
