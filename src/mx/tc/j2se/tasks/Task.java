@@ -3,22 +3,30 @@ package mx.tc.j2se.tasks;
 public class Task {
     String title;
 
-    int time,start,end,interval,RepeatInterval,current;
+    int time,start,end,interval,RepeatInterval,current,rflag,aflag;
     boolean repetitive;
     boolean active=false;
     Task(){};
 
     boolean isRepeated(){
-        if(repetitive)
-        return true ;
-        else
+        if(rflag==0) {
+            repetitive = true;
+            return true;
+        }
+        else {
+            repetitive=false;
             return false;
+        }
     }
     boolean isActive(){
-        if(active)
+        if(aflag==0) {
+            active = true;
             return true;
-        else
+        }
+        else {
+            active=false;
             return false;
+        }
     }
     public String getTitle() {
         return title;
@@ -63,19 +71,22 @@ public class Task {
     }
 
     public Task(String title, int start, int end, int interval) {
-        repetitive=true;
-        active=true;
+        rflag=0;
+        aflag=0;
         this.title = title;
         this.start = start;
         this.end = end;
         this.interval = interval;
+        System.out.println(title+" from "+start+" to "+end);
+
     }
 
     public Task(String title, int time) {
-        repetitive=false;
-        active=true;
+        rflag=1;
+        aflag=0;
         this.title = title;
         this.time = time;
+        System.out.println(title+" at "+time);
 
     }
     void setTime(int start,int end, int interval){
