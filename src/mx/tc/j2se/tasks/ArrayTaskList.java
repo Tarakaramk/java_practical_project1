@@ -1,7 +1,7 @@
 package mx.tc.j2se.tasks;
 import java.util.Arrays;
 
-public class ArrayTaskList<task> {
+public class ArrayTaskList<task> extends AbstractTaskList{
     private static final int INITIAL = 10;
     private int siz = 0;
     private Task data[] = {};
@@ -30,7 +30,7 @@ public class ArrayTaskList<task> {
         data = Arrays.copyOf(data, newIncreasedCapacity);
     }
 
-    public Task remove(int index) {
+    public void remove(int index) {
         if (index < 0 || index >= siz) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size "
                     + index);
@@ -40,8 +40,6 @@ public class ArrayTaskList<task> {
             data[i] = data[i + 1];
         }
         siz--;
-
-        return removedElement;
     }
     public int size(){
         return siz;

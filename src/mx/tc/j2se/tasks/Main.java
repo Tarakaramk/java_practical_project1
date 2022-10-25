@@ -21,11 +21,11 @@ public  class Main {
         tsk.remove(1);
         System.out.println("ArrayList :After removing SIZE:"+tsk.size());
         LinkedTaskList lt = new LinkedTaskList();
-         lt.insert(t);
+         lt.add(t);
          lt.insertAt(1,t1);
         System.out.println("Linkedlist :before removing SIZE:"+lt.size());
         lt.display();
-        lt.deleteNodeAt(1);
+        lt.remove(1);
         System.out.println("LinkedList :After removing SIZE:"+lt.size());
 
 

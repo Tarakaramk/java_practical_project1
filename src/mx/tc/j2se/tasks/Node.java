@@ -3,8 +3,8 @@ package mx.tc.j2se.tasks;
 
     public class Node {
 
-        private Task data;
-        private Node nextNode;
+         public Task data;
+        public Node nextNode;
 
         public Node(Task data){
             this.data = data;

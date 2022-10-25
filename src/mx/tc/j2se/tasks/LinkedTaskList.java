@@ -1,13 +1,13 @@
 package mx.tc.j2se.tasks;
 
-public class LinkedTaskList<task> {
+public class LinkedTaskList<task> extends AbstractTaskList{
 
         private Node head;
         int count=0;
 
         public LinkedTaskList(){
         }
-    public void insert(Task data) {
+    public void add(Task data) {
            Node newNode = new Node(data);
            count++;
            if (this.head == null) {
@@ -39,17 +39,32 @@ public class LinkedTaskList<task> {
             nodeToBeInserted.setNextNode(node.getNextNode());
             node.setNextNode(nodeToBeInserted);
         }
-    public void deleteNodeAt(int index){
+    public void remove(int index){
             count--;
         Node node = head;
         for(int i = 0; i< index -1; i++){
             node = node.getNextNode();
         }
         node.setNextNode(node.getNextNode().getNextNode());
+
     }
-    int size(){
+    public int size(){
         return count;
     }
+    public Task get(int index){
+        int i=0;
+        Node current =head;
+        while(current !=null){
+            if (i == index) {
+                break;
+            }
+            current=current.nextNode;
+            i++;
+        }
+        return current.data;
+    }
+
+
     public void display(){
         if(head != null){
             Node currentNode = head;
