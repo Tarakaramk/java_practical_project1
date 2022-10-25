@@ -30,7 +30,7 @@ public class ArrayTaskList<task> extends AbstractTaskList{
         data = Arrays.copyOf(data, newIncreasedCapacity);
     }
 
-    public void remove(int index) {
+    public boolean remove(int index) {
         if (index < 0 || index >= siz) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size "
                     + index);
@@ -40,6 +40,7 @@ public class ArrayTaskList<task> extends AbstractTaskList{
             data[i] = data[i + 1];
         }
         siz--;
+        return true;
     }
     public int size(){
         return siz;
@@ -52,7 +53,9 @@ public class ArrayTaskList<task> extends AbstractTaskList{
         }
     }
         void ArrayTaskListincoming(int from,int to){
-           display();
+        for(int i=from+1;i<to;i++){
+
+        }
         }
 }
 

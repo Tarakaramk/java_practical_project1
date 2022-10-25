@@ -39,14 +39,14 @@ public class LinkedTaskList<task> extends AbstractTaskList{
             nodeToBeInserted.setNextNode(node.getNextNode());
             node.setNextNode(nodeToBeInserted);
         }
-    public void remove(int index){
+    public boolean remove(int index){
             count--;
         Node node = head;
         for(int i = 0; i< index -1; i++){
             node = node.getNextNode();
         }
         node.setNextNode(node.getNextNode().getNextNode());
-
+      return true;
     }
     public int size(){
         return count;
@@ -63,7 +63,6 @@ public class LinkedTaskList<task> extends AbstractTaskList{
         }
         return current.data;
     }
-
 
     public void display(){
         if(head != null){
