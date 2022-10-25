@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class ArrayTaskList<task> {
     private static final int INITIAL = 10;
-    private int size = 0;
+    private int siz = 0;
     private Task data[] = {};
 
     public ArrayTaskList() {
@@ -11,14 +11,14 @@ public class ArrayTaskList<task> {
     }
 
     public void add(Task task) {
-        if (size == data.length) {
+        if (siz == data.length) {
             ensureCapacity();
         }
-        data[size++] = task;
+        data[siz++] = task;
     }
 
     public Task get(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index >= siz) {
             throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size "
                     + index);
         }
@@ -31,22 +31,25 @@ public class ArrayTaskList<task> {
     }
 
     public Task remove(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index >= siz) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size "
                     + index);
         }
         Task removedElement = data[index];
-        for (int i = index; i < size - 1; i++) {
+        for (int i = index; i < siz - 1; i++) {
             data[i] = data[i + 1];
         }
-        size--;
+        siz--;
 
         return removedElement;
+    }
+    public int size(){
+        return siz;
     }
 
     public void display() {
         System.out.print("Displaying list : ");
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < siz; i++) {
             System.out.print(data[i] + " ");
         }
     }
