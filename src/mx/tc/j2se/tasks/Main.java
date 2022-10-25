@@ -11,7 +11,7 @@ public  class Main {
 
         Task t1 = new Task("Running",7,22,2);
         //t1.toString();
-        ArrayTaskList<Task> tsk= new ArrayTaskList<Task>();
+        ArrayTaskList tsk= new ArrayTaskList();
         //tsk.display();
         tsk.add(t);
         tsk.add(t1);
@@ -22,6 +22,9 @@ public  class Main {
         System.out.println("After removing SIZE:"+tsk.size());
         LinkedTaskList lt = new LinkedTaskList();
          lt.insert(t);
+         lt.insertAt(0,t1);
+
+
     }
 }
 
