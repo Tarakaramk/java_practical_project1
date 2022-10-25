@@ -15,14 +15,19 @@ public  class Main {
         //tsk.display();
         tsk.add(t);
         tsk.add(t1);
-        //tsk.get(5);
-        System.out.println("before removing SIZE:"+tsk.size());
+        System.out.println("Get method:"+tsk.get(1));
+        System.out.println("ArrayList :before removing SIZE:"+tsk.size());
         tsk.display();
         tsk.remove(1);
-        System.out.println("After removing SIZE:"+tsk.size());
+        System.out.println("ArrayList :After removing SIZE:"+tsk.size());
         LinkedTaskList lt = new LinkedTaskList();
          lt.insert(t);
-         lt.insertAt(0,t1);
+         lt.insertAt(1,t1);
+        System.out.println("Linkedlist :before removing SIZE:"+lt.size());
+        lt.display();
+        lt.deleteNodeAt(1);
+        System.out.println("LinkedList :After removing SIZE:"+lt.size());
+
 
 
     }

@@ -23,12 +23,14 @@ public class LinkedTaskList<task> {
 
 
         public void insertHead(Task data){
+            count++;
             Node newNode = new Node(data);
             newNode.setNextNode(head);
             head = newNode;
         }
 
         public void insertAt(int index, Task data){
+            count++;
             Node nodeToBeInserted = new Node(data);
             Node node = head;
             for(int i = 0; i< index -1; i++){
@@ -37,15 +39,26 @@ public class LinkedTaskList<task> {
             nodeToBeInserted.setNextNode(node.getNextNode());
             node.setNextNode(nodeToBeInserted);
         }
-        int size(){
-            return count;
-    }
     public void deleteNodeAt(int index){
+            count--;
         Node node = head;
         for(int i = 0; i< index -1; i++){
             node = node.getNextNode();
         }
         node.setNextNode(node.getNextNode().getNextNode());
+    }
+    int size(){
+        return count;
+    }
+    public void display(){
+        if(head != null){
+            Node currentNode = head;
+            while(currentNode.getNextNode() != null){
+                System.out.println(currentNode.getData());
+                currentNode = currentNode.getNextNode();
+            }
+            System.out.println(currentNode.getData());
+        }
     }
     }
 
