@@ -35,6 +35,13 @@ public class LinkedTaskList<task> {
             nodeToBeInserted.setNextNode(node.getNextNode());
             node.setNextNode(nodeToBeInserted);
         }
+    public void deleteNodeAt(int index){
+        Node node = head;
+        for(int i = 0; i< index -1; i++){
+            node = node.getNextNode();
+        }
+        node.setNextNode(node.getNextNode().getNextNode());
+    }
     }
 
 
