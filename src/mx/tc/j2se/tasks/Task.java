@@ -75,6 +75,7 @@ public class Task {
     }
 
     public Task(String title, int start, int end, int interval){
+        repetitive=true;
         rflag = 0;
         aflag = 0;
         this.title = title;
@@ -88,6 +89,7 @@ public class Task {
     }
 
     public Task(String title, int time)  {
+        repetitive=false;
         rflag = 1;
         aflag = 0;
         this.title = title;

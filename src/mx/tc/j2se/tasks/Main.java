@@ -1,5 +1,7 @@
 package mx.tc.j2se.tasks;
 
+import java.sql.Types;
+
 public  class Main {
     public static void main(String args[]){
         //Task obj = new Task();
@@ -20,13 +22,28 @@ public  class Main {
         tsk.display();
         System.out.println(tsk.remove(1));
         System.out.println("ArrayList :After removing SIZE:"+tsk.size());
-        LinkedTaskList lt = new LinkedTaskList();
+
+
+
+       /* LinkedTaskList lt = new LinkedTaskList();
          lt.add(t);
          lt.insertAt(1,t1);
         System.out.println("Linkedlist :before removing SIZE:"+lt.size());
         lt.display();
         System.out.println(lt.remove(1));
-        System.out.println("LinkedList :After removing SIZE:"+lt.size());
+        System.out.println("LinkedList :After removing SIZE:"+lt.size());*/
+
+
+
+        /*TaskListFactory ts= new TaskListFactory();
+        AbstractTaskList ab =ts.createTaskList(ListTypes.types.ARRAY);
+        ab.add(t);
+        ab.add(t1);
+        System.out.println("Get method:"+ab.get(1));
+        System.out.println("ArrayList :before removing SIZE:"+ab.size());
+        ab.display();
+        System.out.println(ab.remove(1));
+        System.out.println("ArrayList :After removing SIZE:"+ab.size());*/
 
 
 
