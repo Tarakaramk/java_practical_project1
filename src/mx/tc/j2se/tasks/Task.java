@@ -85,7 +85,6 @@ public class Task {
         if (time < 0) {
             throw new IllegalArgumentException("IllegalArgumentException");
         }
-        System.out.println(title + " from " + start + " to " + end);
     }
 
     public Task(String title, int time)  {
@@ -97,8 +96,6 @@ public class Task {
         if (time < 0) {
             throw new IllegalArgumentException("IllegalArgumentException");
         }
-        System.out.println(title + " at " + time);
-
     }
 
     public void setTime(int start, int end, int interval) {

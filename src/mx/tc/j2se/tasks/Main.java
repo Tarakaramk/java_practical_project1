@@ -11,17 +11,21 @@ public  class Main {
 
         Task t = new Task("walking",9);
 
-        Task t1 = new Task("Running",7,22,2);
+        Task t1 = new Task("Running",7,22,1);
         //t1.toString();
         ArrayTaskList tsk= new ArrayTaskList();
         //tsk.display();
+
         tsk.add(t);
         tsk.add(t1);
         System.out.println("Get method:"+tsk.get(1));
         System.out.println("ArrayList :before removing SIZE:"+tsk.size());
-        tsk.display();
+        //tsk.display();
+        tsk.ArrayTaskListincoming(6,23);
         System.out.println(tsk.remove(1));
         System.out.println("ArrayList :After removing SIZE:"+tsk.size());
+        tsk.ArrayTaskListincoming(6,23);
+
 
 
 

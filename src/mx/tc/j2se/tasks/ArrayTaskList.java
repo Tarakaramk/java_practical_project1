@@ -56,12 +56,12 @@ public class ArrayTaskList<task> extends AbstractTaskList{
         for(int i=0;i<siz;i++) {
             if(data[i].repetitive==true) {
                 if (data[i].start > from && data[i].end < to) {
-                    System.out.println(data[i].title + data[i].start + "to" + data[i].end + "every" + (from - to) + "hours");
+                    System.out.println(data[i].title +" "+ data[i].start + " to " + data[i].end + " every " + (to-from) + " hours ");
                 }
             }
             else if(data[i].repetitive==false){
                 if (data[i].time > from && data[i].time < to) {
-                    System.out.println(data[i].title + "at" +data[i].time);
+                    System.out.println(data[i].title + " at " +data[i].time);
                 }
             }
         }
