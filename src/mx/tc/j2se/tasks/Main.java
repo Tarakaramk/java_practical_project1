@@ -105,6 +105,10 @@ public  class Main {
             System.out.print(value + ", ");
         }
 
+
+
+        System.out.println(ab1.equals(tsk));
+
     }
 }
 

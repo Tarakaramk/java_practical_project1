@@ -1,16 +1,20 @@
 package mx.tc.j2se.tasks;
 
+import java.time.LocalDateTime;
+
 public class Task {
     String title;
 
     int time, start, end, interval, RepeatInterval, current, rflag, aflag;
+    //LocalDateTime time,start,end,interval;
     boolean repetitive;
     boolean active = false;
 
     Task() {
     }
 
-    ;
+    //equals
+
 
     boolean isRepeated() {
         if (rflag == 0) {
