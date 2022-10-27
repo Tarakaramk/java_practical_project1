@@ -1,6 +1,7 @@
 package mx.tc.j2se.tasks;
 
 import java.sql.Types;
+import java.util.Iterator;
 
 public  class Main {
     public static void main(String args[]){
@@ -96,6 +97,13 @@ public  class Main {
         System.out.println("ArrayList :After removing SIZE:"+ab1.size());
 
 
+
+      //<task> implements Iterable<Task>
+        Iterator<Task> it = ab.iterator();
+        while(it.hasNext()){
+            String value = it.next().toString();
+            System.out.print(value + ", ");
+        }
 
     }
 }
