@@ -1,10 +1,13 @@
 package mx.tc.j2se.tasks;
 
-import java.sql.Types;
+//import java.sql.Types;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
 import java.util.Iterator;
 
 public  class Main {
-    public static void main(String args[]){
+    public static void main(String[] args){
         /*Task obj = new Task();
         obj.setTitle("walking");
         obj.setTime(9);
@@ -12,11 +15,18 @@ public  class Main {
 
 
         //object creation for task and passing arguments for constructor
-        Task t = new Task("walking",9);
+        Task t = new Task("Running", LocalDateTime.of(2022, Month.valueOf("JUNE"),1,9,0));
 
 
         //object creation for task and passing arguments for constructor
-        Task t1 = new Task("Running",7,22,1);
+        //Task t1 = new Task(,9);
+        Task t1=new Task("walking",LocalDateTime.of(2022, Month.valueOf("OCTOBER"),30,9,0),
+                          LocalDateTime.of(2022, Month.valueOf("DECEMBER"),
+                        30,9,0), LocalTime.of(12,00));
+
+
+        System.out.println(t1.nextTimeAfter(LocalDateTime.of(2022, Month.valueOf("AUGUST"),12,8,15)));
+
 
         //object creation for arraylist
         ArrayTaskList tsk= new ArrayTaskList();
@@ -36,7 +46,9 @@ public  class Main {
         System.out.println("ArrayList :before removing SIZE:"+tsk.size());
 
         //calling arraytasklistincoming function
-        tsk.ArrayTaskListincoming(6,23);
+        tsk.ArrayTaskListincoming(LocalDateTime.of(2022, Month.valueOf("MAY"),
+                30,6,0), LocalDateTime.of(2022, Month.valueOf("DECEMBER"),
+                30,6,0));
 
         //acknowledging remove function(true or false)
         System.out.println(tsk.remove(1));
@@ -45,7 +57,11 @@ public  class Main {
         System.out.println("ArrayList :After removing SIZE:"+tsk.size());
 
         //calling arraytasklistincoming function after calling removing function
-        tsk.ArrayTaskListincoming(6,23);
+        tsk.ArrayTaskListincoming(LocalDateTime.of(2022, Month.valueOf("MAY"),
+                30,6,0), LocalDateTime.of(2022, Month.valueOf("DECEMBER"),
+                30,6,0));
+
+
 
 
         /*t1.toString();
@@ -104,9 +120,6 @@ public  class Main {
             String value = it.next().toString();
             System.out.print(value + ", ");
         }
-
-
-
         System.out.println(ab1.equals(tsk));
 
     }

@@ -1,12 +1,14 @@
 package mx.tc.j2se.tasks;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Task {
     String title;
 
-    int time, start, end, interval, RepeatInterval, current, rflag, aflag;
-    //LocalDateTime time,start,end,interval;
+    LocalDateTime time, start, end, current;
+    LocalTime interval, RepeatInterval;
+    int rflag, aflag;
     boolean repetitive;
     boolean active = false;
 
@@ -44,41 +46,45 @@ public class Task {
         this.title = title;
     }
 
-    public int getTime() {
+    public LocalDateTime getTime() {
         if (repetitive) {
-            start = start + interval;
+            start = start.plusHours(this.interval.getHour());
             return start;
         }
-        return 0;
-
+        return start;
     }
 
 
-    public void setTime(int time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
         if (repetitive)
             repetitive = false;
     }
 
-    public int getStartTime() {
+    public LocalDateTime getStartTime() {
         if (repetitive = false)
             return start;
-        return 0;
+        else return this.time;
     }
 
-    public int getEndTime() {
+    public LocalDateTime getEndTime() {
         if (repetitive = false)
             return end;
-        return 0;
+        else
+        return this.time;
     }
 
-    public int getRepeatInterval() {
+    public LocalTime getRepeatInterval() {
         if (repetitive = false)
-            return 0;
-        return 0;
+            return LocalTime.of(0,0,0);
+        return this.interval;
     }
 
-    public Task(String title, int start, int end, int interval){
+    public Task(String title, LocalDateTime start, LocalDateTime end, LocalTime interval){
+        if(start.getHour()<0 || end.getHour()<0)
+        {
+            throw new IllegalArgumentException("time must be greater than zero");
+        }
         repetitive=true;
         rflag = 0;
         aflag = 0;
@@ -86,23 +92,23 @@ public class Task {
         this.start = start;
         this.end = end;
         this.interval = interval;
-        if (time < 0) {
+        if (this.interval.getHour() < 0) {
             throw new IllegalArgumentException("IllegalArgumentException");
         }
     }
 
-    public Task(String title, int time)  {
+    public Task(String title,LocalDateTime time)  {
         repetitive=false;
         rflag = 1;
         aflag = 0;
         this.title = title;
         this.time = time;
-        if (time < 0) {
+        if (time.getHour() < 0) {
             throw new IllegalArgumentException("IllegalArgumentException");
         }
     }
 
-    public void setTime(int start, int end, int interval) {
+    public void setTime(LocalDateTime start, LocalDateTime end, LocalTime interval) {
         if (repetitive == false)
             repetitive = true;
         this.start = start;
@@ -110,15 +116,14 @@ public class Task {
         this.interval = interval;
     }
 
-    int nextTimeAfter(int current) {
+    public LocalDateTime nextTimeAfter(LocalDateTime current) {
         this.current = current;
-        current = start + interval;
-        if (current > end)
-            return -1;
+        current = start.plusHours(this.interval.getHour());
+        if (current.isAfter(end))
+             return LocalDateTime.of(-1,-1,-1,-1,-1,-1);
         return current;
 
     }
-
     void setActive(boolean active) {
         active = true;
     }

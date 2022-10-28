@@ -1,4 +1,6 @@
 package mx.tc.j2se.tasks;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Arrays;
 
 public class ArrayTaskList<task> extends AbstractTaskList{
@@ -52,15 +54,15 @@ public class ArrayTaskList<task> extends AbstractTaskList{
             System.out.print(data[i] + " ");
         }
     }
-        void ArrayTaskListincoming(int from,int to){
+        void ArrayTaskListincoming(LocalDateTime from, LocalDateTime to){
         for(int i=0;i<siz;i++) {
-            if(data[i].repetitive==true) {
-                if (data[i].start > from && data[i].end < to) {
-                    System.out.println(data[i].title +" "+ data[i].start + " to " + data[i].end + " every " + (to-from) + " hours ");
+            if(data[i].repetitive == true) {
+                if (data[i].start.isAfter(from) && data[i].end.isBefore(to)) {
+                    System.out.println(data[i].title +" "+ data[i].start + " to " + data[i].end + " every " + " hours ");
                 }
             }
             else if(data[i].repetitive==false){
-                if (data[i].time > from && data[i].time < to) {
+                if (data[i].time.isAfter(from) && data[i].time.isBefore(to)) {
                     System.out.println(data[i].title + " at " +data[i].time);
                 }
             }
