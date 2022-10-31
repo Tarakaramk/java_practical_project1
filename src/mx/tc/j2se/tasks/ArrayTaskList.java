@@ -55,15 +55,18 @@ public class ArrayTaskList<task> extends AbstractTaskList{
         }
     }
         void ArrayTaskListincoming(LocalDateTime from, LocalDateTime to){
+        ArrayTaskList at = new ArrayTaskList();
         for(int i=0;i<siz;i++) {
             if(data[i].repetitive == true) {
                 if (data[i].start.isAfter(from) && data[i].end.isBefore(to)) {
-                    System.out.println(data[i].title +" "+ data[i].start + " to " + data[i].end + " every " + " hours ");
+                    //System.out.println(data[i].title +" "+ data[i].start + " to " + data[i].end + " every " + " hours ");
+                    at.add(data[i]);
                 }
             }
             else if(data[i].repetitive==false){
                 if (data[i].time.isAfter(from) && data[i].time.isBefore(to)) {
-                    System.out.println(data[i].title + " at " +data[i].time);
+                    //System.out.println(data[i].title + " at " +data[i].time);
+                    at.add(data[i]);
                 }
             }
         }

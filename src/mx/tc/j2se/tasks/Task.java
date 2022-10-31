@@ -6,9 +6,14 @@ import java.time.LocalTime;
 public class Task {
     String title;
 
-    LocalDateTime time, start, end, current;
-    LocalTime interval, RepeatInterval;
-    int rflag, aflag;
+    LocalDateTime time;
+    LocalDateTime start;
+    LocalDateTime end;
+    LocalDateTime current;
+    LocalTime interval;
+    LocalTime RepeatInterval;
+    int rflag;
+    int aflag;
     boolean repetitive;
     boolean active = false;
 

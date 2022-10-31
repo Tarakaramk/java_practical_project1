@@ -1,5 +1,7 @@
 package mx.tc.j2se.tasks;
 
+import java.time.LocalDateTime;
+
 public class LinkedTaskList<task> extends AbstractTaskList{
 
         private Node head;
@@ -74,7 +76,24 @@ public class LinkedTaskList<task> extends AbstractTaskList{
             System.out.println(currentNode.getData());
         }
     }
+    public LinkedTaskList<Task> incoming(LocalDateTime from, LocalDateTime to){
+        LinkedTaskList<Task> lr = new LinkedTaskList<>();
+        Node current=head;
+        while(current != null)
+        {
+            if(current.data.getTime().compareTo(from) >0 && current.data.getTime().compareTo(to)<0)
+            {
+                lr.add(current.data);
+            }
+            current = current.nextNode;
+
+        }
+        return lr;
     }
+
+
+}
+
 
 
 

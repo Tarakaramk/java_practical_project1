@@ -56,5 +56,18 @@ public abstract class AbstractTaskList<task>implements Iterable<Task> {
             }
             return false;
         }
+
     }
-}
+
+    ArrayTaskList<task> al =new ArrayTaskList<>();
+    Iterator<Task> iter =al.iterator();
+    @Override
+    public ArrayTaskList clone(){
+        for(int i=0;i<size();i++){
+            al.add(get(i));
+        }
+        return al;
+    }
+    }
+
+

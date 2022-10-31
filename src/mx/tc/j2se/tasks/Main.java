@@ -1,6 +1,8 @@
 package mx.tc.j2se.tasks;
 
 //import java.sql.Types;
+import com.sun.org.apache.xpath.internal.axes.IteratorPool;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
@@ -67,9 +69,8 @@ public  class Main {
         /*t1.toString();
         tsk.display();*/
 
-       /*
 
-        //object creation for linkedlist
+       /* //object creation for linkedlist
        LinkedTaskList lt = new LinkedTaskList();
 
          //adding task objects to linkedlist
@@ -85,9 +86,12 @@ public  class Main {
         System.out.println(lt.remove(1));
 
         //printing size after removing an task object from arraylist
-        System.out.println("LinkedList :After removing SIZE:"+lt.size());*/
+        System.out.println("LinkedList :After removing SIZE:"+lt.size());
+        lt.incoming(LocalDateTime.of(2022, Month.valueOf("MAY"),
+                30,6,0),LocalDateTime.of(2022, Month.valueOf("DECEMBER"),
+                30,6,0));
 
-
+*/
         //lt.display();
 
 
@@ -114,13 +118,22 @@ public  class Main {
 
 
 
-      //<task> implements Iterable<Task>
+      //<task> implements Iterable<Task> and equals
         Iterator<Task> it = ab.iterator();
         while(it.hasNext()){
             String value = it.next().toString();
             System.out.print(value + ", ");
         }
         System.out.println(ab1.equals(tsk));
+
+
+       //incoming method implementation in tasks method
+        Tasks tas = new Tasks();
+
+        Iterator<Task> tasks =tsk.iterator();
+        tas.incoming(tasks,LocalDateTime.of(2022, Month.valueOf("MAY"),
+                30,6,0),LocalDateTime.of(2022, Month.valueOf("DECEMBER"),
+                30,6,0));
 
     }
 }
