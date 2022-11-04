@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 public  class Main {
     public static void main(String[] args){
@@ -70,7 +71,7 @@ public  class Main {
         tsk.display();*/
 
 
-       /* //object creation for linkedlist
+        //object creation for linkedlist
        LinkedTaskList lt = new LinkedTaskList();
 
          //adding task objects to linkedlist
@@ -87,10 +88,10 @@ public  class Main {
 
         //printing size after removing an task object from arraylist
         System.out.println("LinkedList :After removing SIZE:"+lt.size());
-        lt.incoming(LocalDateTime.of(2022, Month.valueOf("MAY"),
-                30,6,0),LocalDateTime.of(2022, Month.valueOf("DECEMBER"),
-                30,6,0));
 
+        /*lt.incoming(LocalDateTime.of(2022, Month.valueOf("MAY"),
+                30,9,0),LocalDateTime.of(2022, Month.valueOf("DECEMBER"),
+                30,9,0));
 */
         //lt.display();
 
@@ -106,6 +107,11 @@ public  class Main {
         System.out.println("ArrayList :After removing SIZE:"+ab.size());
 
 
+        tsk.getStream().forEach(n-> System.out.println("Streams:"+n));
+
+
+
+
 
         AbstractTaskList ab1 =ts.createTaskList(ListTypes.types.LINKED);
         ab1.add(t);
@@ -116,6 +122,8 @@ public  class Main {
         System.out.println(ab1.remove(1));
         System.out.println("ArrayList :After removing SIZE:"+ab1.size());
 
+
+        //System.out.println("clone:"+ab1.clone());*/
 
 
       //<task> implements Iterable<Task> and equals
@@ -134,6 +142,19 @@ public  class Main {
         tas.incoming(tasks,LocalDateTime.of(2022, Month.valueOf("MAY"),
                 30,6,0),LocalDateTime.of(2022, Month.valueOf("DECEMBER"),
                 30,6,0));
+
+
+       //hashcode
+        AbstractTaskList abs = new ArrayTaskList();
+        abs.add(t);
+        AbstractTaskList abs1 = new ArrayTaskList();
+        abs1.add(t1);
+        boolean hash = AbstractTaskList.hashcode(abs,abs1);
+        System.out.println("HashCode:"+hash);
+
+
+
+
 
     }
 }

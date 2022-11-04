@@ -2,6 +2,7 @@ package mx.tc.j2se.tasks;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class ArrayTaskList<task> extends AbstractTaskList{
     private static final int INITIAL = 10;
@@ -71,6 +72,21 @@ public class ArrayTaskList<task> extends AbstractTaskList{
             }
         }
         }
+
+    //@Override
+     public Stream<Task> getStream(){
+        return Stream.of(data);
+
+    }
+
+    @Override
+    public String toString() {
+        return "ArrayTaskList{" +
+                "siz=" + siz +
+                ", data=" + Arrays.toString(data) +
+                '}';
+    }
 }
+
 
 
